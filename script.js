@@ -31,3 +31,10 @@ start.addEventListener("click", async () => {
     },1500);
 
 });
+.glass{
+    transition:1s;
+}
+
+body{
+    transition:1.5s;
+}
