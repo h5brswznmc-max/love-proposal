@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İnci ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#000,#2d0037,#000);
+color:white;
+transition:1.5s;
+}
+
+.card{
+width:90%;
+max-width:900px;
+padding:50px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border-radius:30px;
+text-align:center;
+box-shadow:0 0 60px rgba(255,0,120,.2);
+animation:show 2s;
+position:relative;
+z-index:2;
+}
+
+@keyframes show{
+from{opacity:0;transform:scale(.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+.ring{
+font-size:90px;
+animation:ring 2s infinite;
+}
+
+@keyframes ring{
+0%{transform:rotate(-15deg);}
+50%{transform:rotate(15deg);}
+100%{transform:rotate(-15deg);}
+}
+
+h1{
+font-size:55px;
+margin:20px 0;
+color:#ff4d8d;
+}
+
+p{
+font-size:23px;
+line-height:1.8;
+}
+
+.buttons{
+margin-top:45px;
+}
+
+button{
+padding:18px 40px;
+font-size:20px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+margin:15px;
+transition:.4s;
+}
+
+#yes{
+background:#ff2d75;
+color:white;
+}
+
+#yes:hover{
+transform:scale(1.1);
+box-shadow:0 0 35px #ff2d75;
+}
+
+#no{
+background:white;
+color:#ff2d75;
+position:absolute;
+}
+
+#result{
+display:none;
+margin-top:40px;
+font-size:32px;
+font-weight:bold;
+color:#ffd700;
+}
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="ring">💍</div>
+
+<h1>İnci ❤️</h1>
+
+<p>
+
+Həyatımın ən gözəl təsadüfü...
+
+Ən gözəl gülüşü...
+
+Ən gözəl hissi...
+
+Sən mənim üçün çox dəyərlisən.
+
+Mən istəyirəm ki,
+
+bundan sonra bütün gözəl günlərimizi birlikdə yaşayaq.
+
+❤️
+
+<b>Mənim sevgilim olarsan?</b>
+
+</p>
+
+<div class="buttons">
+
+<button id="yes">Bəli ❤️</button>
+
+<button id="no">Yox 🤍</button>
+
+</div>
+
+<div id="result">
+
+🎉 Sonsuza qədər birlikdəyik! ❤️
+
+<br><br>
+
+Səni sonsuzadək sevəcəyəm İnci...
+
+❤️
+
+<br><br>
+
+— Sübhan
+
+</div>
+
+</div>
+
+<script>
+
+const yes=document.getElementById("yes");
+const no=document.getElementById("no");
+const result=document.getElementById("result");
+
+no.addEventListener("mouseover",()=>{
+
+let x=Math.random()*(window.innerWidth-120);
+
+let y=Math.random()*(window.innerHeight-70);
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
+});
+
+yes.onclick=()=>{
+
+document.body.style.background="linear-gradient(135deg,#ff0066,#ff7eb3,#ff0066)";
+
+result.style.display="block";
+
+for(let i=0;i<200;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(Math.random()*3+3)+"s";
+
+h.style.fontSize=(Math.random()*25+20)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},7000);
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
