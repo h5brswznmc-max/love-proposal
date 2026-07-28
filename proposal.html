@@ -17,11 +17,13 @@ font-family:Poppins,sans-serif;
 }
 
 body{
-height:100vh;
-overflow:hidden;
+min-height:100vh;
+overflow-y:auto;
+overflow-x:hidden;
 display:flex;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
+padding:40px 15px;
 background:linear-gradient(135deg,#000,#2d0037,#000);
 color:white;
 transition:1.5s;
@@ -30,15 +32,8 @@ transition:1.5s;
 .card{
 width:90%;
 max-width:900px;
+margin:40px auto;
 padding:50px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(20px);
-border-radius:30px;
-text-align:center;
-box-shadow:0 0 60px rgba(255,0,120,.2);
-animation:show 2s;
-position:relative;
-z-index:2;
 }
 
 @keyframes show{
