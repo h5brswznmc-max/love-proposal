@@ -1,118 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+const photo = document.getElementById("photo");
+const message = document.getElementById("message");
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+const photos = [
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg"
+];
 
-body{
-    background:#000;
-    overflow:hidden;
-}
+const texts = [
 
-.gallery{
-    position:relative;
-    width:100%;
-    height:100vh;
-}
+"Hər dəfə sənə baxanda ürəyim daha sürətli döyünür... ❤️",
 
-#photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    animation:zoom 10s linear infinite alternate;
-    transition:opacity 1s ease;
-}
+"Sənin gülüşün mənim ən sevdiyim mənzərədir. ✨",
 
-.overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.8),
-        rgba(0,0,0,.2),
-        rgba(0,0,0,.8)
-    );
-}
+"Həyatımın ən gözəl təsadüfü səni tanımağım oldu. 💖",
 
-.glass-text{
-    position:absolute;
-    left:50%;
-    bottom:40px;
-    transform:translateX(-50%);
-    width:90%;
-    max-width:700px;
+"İndi isə sənə ürəyimdə saxladığım ən vacib sualı verməyin vaxtıdır... ❤️"
 
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.15);
+];
 
-    border-radius:25px;
-    padding:30px;
+let index = 0;
 
-    text-align:center;
-    color:white;
-}
+function changePhoto(){
 
-.glass-text h1{
-    color:#ff4d88;
-    font-size:42px;
-    margin-bottom:15px;
-    text-shadow:0 0 20px rgba(255,77,136,.7);
-}
+    photo.style.opacity = "0";
+    message.style.opacity = "0";
 
-.glass-text p{
-    font-size:20px;
-    line-height:1.8;
-}
+    setTimeout(()=>{
 
-#stars{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background-image:
-      radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-      radial-gradient(2px 2px at 150px 180px,#fff,transparent),
-      radial-gradient(2px 2px at 350px 80px,#fff,transparent),
-      radial-gradient(2px 2px at 600px 250px,#fff,transparent);
-    background-size:800px 400px;
-    opacity:.4;
-    animation:stars 60s linear infinite;
-}
+        index++;
 
-@keyframes stars{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-300px);
-    }
-}
+        if(index >= photos.length){
 
-@keyframes zoom{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.12);
-    }
-}
+            document.body.style.transition="1.5s";
+            document.body.style.opacity="0";
 
-@media(max-width:768px){
+            setTimeout(()=>{
 
-.glass-text{
-    bottom:20px;
-    padding:22px;
-}
+                location.href="letter.html";
 
-.glass-text h1{
-    font-size:30px;
-}
+            },1500);
 
-.glass-text p{
-    font-size:17px;
-}
+            return;
+        }
+
+        photo.src = photos[index];
+        message.innerHTML = texts[index];
+
+        photo.style.opacity="1";
+        message.style.opacity="1";
+
+    },700);
 
 }
+
+setInterval(changePhoto,6000);
