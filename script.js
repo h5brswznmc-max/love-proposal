@@ -1,22 +1,33 @@
 const start = document.getElementById("start");
 const music = document.getElementById("music");
+const glass = document.querySelector(".glass");
 
-start.addEventListener("click", () => {
+window.onload = () => {
+    glass.style.opacity = "0";
+    glass.style.transform = "translateY(50px)";
 
-    // Düyməni deaktiv et
+    setTimeout(() => {
+        glass.style.transition = "1.2s ease";
+        glass.style.opacity = "1";
+        glass.style.transform = "translateY(0)";
+    }, 300);
+};
+
+start.addEventListener("click", async () => {
+
     start.disabled = true;
-    start.innerHTML = "❤️ Sənin üçün... ❤️";
+    start.innerHTML = "❤️ Hazır ol... ❤️";
 
-    // Musiqini başlat
-    music.play().catch(err => console.log(err));
+    try{
+        await music.play();
+    }catch(e){}
 
-    // Kiçik animasiya
-    document.body.style.transition = "1.5s";
+    document.body.style.transition = "1.5s ease";
+    document.body.style.filter = "brightness(0)";
     document.body.style.opacity = "0";
 
-    // 2 saniyə sonra qalereyaya keç
     setTimeout(() => {
         window.location.href = "gallery.html";
-    }, 2000);
+    },1500);
 
 });
