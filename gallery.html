@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bizim Xatirələrimiz ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+background:#000;
+overflow:hidden;
+margin:0;
+}
+
+.slider{
+
+width:100vw;
+height:100vh;
+position:relative;
+
+}
+
+.slide{
+
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+transition:2s;
+
+}
+
+.slide img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+.active{
+
+opacity:1;
+
+}
+
+.caption{
+
+position:absolute;
+
+bottom:80px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+color:white;
+
+font-size:35px;
+
+background:rgba(0,0,0,.45);
+
+padding:18px 35px;
+
+border-radius:30px;
+
+backdrop-filter:blur(10px);
+
+}
+
+.next{
+
+position:absolute;
+
+top:40px;
+
+right:40px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:20px;
+
+background:#ff2d75;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="slider">
+
+<div class="slide active">
+
+<img src="assets/photo1.jpg">
+
+<div class="caption">
+
+Hər baxışında yeni bir dünya gördüm ❤️
+
+</div>
+
+</div>
+
+<div class="slide">
+
+<img src="assets/photo2.jpg">
+
+<div class="caption">
+
+Səninlə keçən hər an ömrümün ən gözəl xatirəsidir...
+
+</div>
+
+</div>
+
+<div class="slide">
+
+<img src="assets/photo3.jpg">
+
+<div class="caption">
+
+Bu hekayənin sonu yox...
+
+Çünki bu sadəcə başlanğıcdır...
+
+❤️
+
+</div>
+
+</div>
+
+<button class="next">
+
+Davam Et ❤️
+
+</button>
+
+</div>
+
+<audio autoplay loop>
+
+<source src="assets/music.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+const slides=document.querySelectorAll(".slide");
+
+let index=0;
+
+setInterval(()=>{
+
+slides[index].classList.remove("active");
+
+index++;
+
+if(index>=slides.length){
+
+index=0;
+
+}
+
+slides[index].classList.add("active");
+
+},5000);
+
+document.querySelector(".next").onclick=function(){
+
+window.location="letter.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
