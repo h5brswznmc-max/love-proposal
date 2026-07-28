@@ -10,31 +10,22 @@ const photos = [
 
 const texts = [
     "Səni tanıdığım gündən həyatım daha gözəl oldu. ❤️",
-    "Hər gülüşün mənim üçün ən qiymətli hədiyyədir. ✨",
-    "Səninlə keçən hər an yaddaşıma ən gözəl xatirə kimi həkk olunur. 💖",
-    "Bu gün sənə ürəyimdəki ən səmimi sualı vermək istəyirəm... ❤️"
+    "Sənin gülüşün bütün günümü işıqlandırır. ✨",
+    "Səninlə keçən hər an mənim üçün çox dəyərlidir. 💖",
+    "İndi isə sənə ürəyimdəki ən vacib sualı vermək istəyirəm... ❤️"
 ];
 
-let i = 0;
+let index = 0;
 
-function nextPhoto() {
-    photo.style.opacity = "0";
-    message.style.opacity = "0";
+setInterval(() => {
+    index++;
 
-    setTimeout(() => {
-        i++;
+    if (index >= photos.length) {
+        window.location.href = "letter.html";
+        return;
+    }
 
-        if (i >= photos.length) {
-            window.location.href = "letter.html";
-            return;
-        }
+    photo.src = photos[index];
+    message.textContent = texts[index];
 
-        photo.src = photos[i];
-        message.innerText = texts[i];
-
-        photo.style.opacity = "1";
-        message.style.opacity = "1";
-    }, 800);
-}
-
-setInterval(nextPhoto, 6000);
+}, 5000);
