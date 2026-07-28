@@ -1,54 +1,82 @@
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const success = document.getElementById("success");
 
-// Xeyr düyməsi qaçsın
-no.addEventListener("mouseover", () => {
+// Xeyr düyməsi qaçır
+function moveNoButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 80);
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-    no.style.position = "absolute";
-    no.style.left = x + "px";
-    no.style.top = y + "px";
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
 
-});
-
-// Telefon üçün
-no.addEventListener("touchstart", (e) => {
-
+noBtn.addEventListener("mouseenter", moveNoButton);
+noBtn.addEventListener("touchstart", (e) => {
     e.preventDefault();
-
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 80);
-
-    no.style.position = "absolute";
-    no.style.left = x + "px";
-    no.style.top = y + "px";
-
+    moveNoButton();
 });
 
 // Bəli düyməsi
-yes.addEventListener("click", () => {
+yesBtn.addEventListener("click", () => {
 
-    document.body.innerHTML = `
-    <div style="
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction:column;
-        height:100vh;
-        text-align:center;
-        color:white;
-        background:linear-gradient(135deg,#ff2d75,#7b2cff);
-        padding:20px;
-    ">
-        <h1 style="font-size:55px;">🎉❤️</h1>
+    document.querySelector(".container").style.display = "none";
 
-        <h2>Məni dünyanın ən xoşbəxt insanı etdin!</h2>
+    success.style.display = "flex";
 
-        <p style="font-size:22px;margin-top:20px;">
-        Səni çox sevirəm, İnci ❤️
-        </p>
-    </div>
-    `;
+    createHearts();
+
 });
+
+// Ürəklər
+function createHearts(){
+
+    setInterval(()=>{
+
+        const heart=document.createElement("div");
+
+        heart.innerHTML="❤️";
+
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.bottom="-30px";
+        heart.style.fontSize=(20+Math.random()*30)+"px";
+        heart.style.pointerEvents="none";
+        heart.style.animation="fly 5s linear forwards";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },5000);
+
+    },250);
+
+}
+
+// Animasiya
+const style=document.createElement("style");
+
+style.innerHTML=`
+
+@keyframes fly{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) scale(1.8);
+opacity:0;
+}
+
+}
+
+`;
+
+document.head.appendChild(style);
