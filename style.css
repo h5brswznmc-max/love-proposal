@@ -121,3 +121,209 @@ line-height:1.9;
 opacity:.92;
 
 }
+/* =========================
+   PREMIUM V2 - PART 2
+========================= */
+
+/* Düymə */
+#start{
+    margin-top:40px;
+    padding:18px 45px;
+    font-size:20px;
+    font-weight:600;
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#ff2d75,#ff6fa5);
+    box-shadow:0 10px 30px rgba(255,45,117,.45);
+    transition:all .35s ease;
+}
+
+#start:hover{
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 15px 45px rgba(255,45,117,.7);
+}
+
+/* Kartın giriş animasiyası */
+@keyframes showCard{
+    from{
+        opacity:0;
+        transform:translateY(60px) scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* Fonun yavaş hərəkəti */
+@keyframes moveBackground{
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(-300px,-300px);
+    }
+}
+
+/* Telefon */
+@media(max-width:768px){
+
+.glass{
+
+padding:35px 25px;
+
+}
+
+.glass h1{
+
+font-size:42px;
+
+}
+
+.glass h2{
+
+font-size:20px;
+
+}
+
+.glass p{
+
+font-size:17px;
+
+}
+
+#start{
+
+width:100%;
+
+font-size:18px;
+
+}
+
+}
+/* =========================
+   PREMIUM V2 - PART 3
+========================= */
+
+/* Ulduzlar */
+#stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+#stars::before,
+#stars::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+        radial-gradient(2px 2px at 120px 150px,#fff,transparent),
+        radial-gradient(1.5px 1.5px at 250px 90px,#fff,transparent),
+        radial-gradient(2px 2px at 380px 200px,#fff,transparent),
+        radial-gradient(1.5px 1.5px at 500px 70px,#fff,transparent),
+        radial-gradient(2px 2px at 700px 250px,#fff,transparent);
+    background-size:800px 400px;
+    animation:starsMove 80s linear infinite;
+    opacity:.7;
+}
+
+#stars::after{
+    animation-duration:120s;
+    opacity:.35;
+}
+
+/* Ürəklər */
+#hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+#hearts::before{
+    content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+    position:absolute;
+    bottom:-120px;
+    width:100%;
+    font-size:24px;
+    letter-spacing:50px;
+    animation:heartsUp 18s linear infinite;
+    opacity:.35;
+}
+
+/* Animasiyalar */
+
+@keyframes starsMove{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-400px);
+}
+
+}
+
+@keyframes heartsUp{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+15%{
+opacity:.35;
+}
+
+100%{
+transform:translateY(-130vh);
+opacity:0;
+}
+
+}
+
+/* Yumşaq parıltı */
+
+.glass::before{
+
+content:"";
+
+position:absolute;
+
+inset:-2px;
+
+border-radius:30px;
+
+background:linear-gradient(
+45deg,
+transparent,
+rgba(255,255,255,.18),
+transparent
+);
+
+animation:shine 5s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes shine{
+
+0%{
+transform:translateX(-120%);
+}
+
+100%{
+transform:translateX(120%);
+}
+
+}
