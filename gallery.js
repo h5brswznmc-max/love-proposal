@@ -1,11 +1,16 @@
 const photo = document.getElementById("photo");
 const message = document.getElementById("message");
 
-const photos = [
-    "images/1.jpg",
-    "images/2.jpg",
-    "images/3.jpg",
-    "images/4.jpg"
+const images = [
+  "https://i.ibb.co/XxDJ9yVd/MG-3332.jpg",
+  "https://i.ibb.co/zThZQkfb/MG-3065.jpg",
+  "https://i.ibb.co/gsRB41c/D405-D3-A3-B984-44-D7-988-B-9178363-B7697.jpg",
+  "https://i.ibb.co/TBxBnwNG/MG-2378.jpg",
+  "https://i.ibb.co/Q72RKkym/MG-2221.png",
+  "https://i.ibb.co/SwsxZpJm/MG-2211.jpg",
+  "https://i.ibb.co/mLwZZCz/MG-2092.jpg",
+  "https://i.ibb.co/KzS2Zk8K/MG-2086.jpg",
+  "https://i.ibb.co/WNkkJbyp/MG-2027.jpg",
 ];
 
 const texts = [
