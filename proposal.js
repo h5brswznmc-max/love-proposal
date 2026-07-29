@@ -1,64 +1,65 @@
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
 const success = document.getElementById("success");
 
-// Xeyr düyməsi qaçır
-function moveNoButton() {
-    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+no.addEventListener("mouseenter", move);
+no.addEventListener("touchstart", (e)=>{
+    e.preventDefault();
+    move();
+});
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
+function move(){
 
-    noBtn.style.position = "fixed";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+const x=Math.random()*(window.innerWidth-120);
+
+const y=Math.random()*(window.innerHeight-60);
+
+no.style.position="fixed";
+no.style.left=x+"px";
+no.style.top=y+"px";
+
 }
 
-noBtn.addEventListener("mouseenter", moveNoButton);
-noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    moveNoButton();
-});
+yes.onclick=()=>{
 
-// Bəli düyməsi
-yesBtn.addEventListener("click", () => {
+document.querySelector(".container").style.display="none";
 
-    document.querySelector(".container").style.display = "none";
+success.style.display="flex";
 
-    success.style.display = "flex";
+createHearts();
 
-    createHearts();
+};
 
-});
-
-// Ürəklər
 function createHearts(){
 
-    setInterval(()=>{
+setInterval(()=>{
 
-        const heart=document.createElement("div");
+const h=document.createElement("div");
 
-        heart.innerHTML="❤️";
+h.innerHTML="❤️";
 
-        heart.style.position="fixed";
-        heart.style.left=Math.random()*100+"vw";
-        heart.style.bottom="-30px";
-        heart.style.fontSize=(20+Math.random()*30)+"px";
-        heart.style.pointerEvents="none";
-        heart.style.animation="fly 5s linear forwards";
+h.style.position="fixed";
 
-        document.body.appendChild(heart);
+h.style.left=Math.random()*100+"vw";
 
-        setTimeout(()=>{
-            heart.remove();
-        },5000);
+h.style.bottom="-30px";
 
-    },250);
+h.style.fontSize=(20+Math.random()*30)+"px";
+
+h.style.animation="fly 5s linear forwards";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},5000);
+
+},200);
 
 }
 
-// Animasiya
 const style=document.createElement("style");
 
 style.innerHTML=`
@@ -66,13 +67,19 @@ style.innerHTML=`
 @keyframes fly{
 
 0%{
-transform:translateY(0) scale(1);
+
+transform:translateY(0);
+
 opacity:1;
+
 }
 
 100%{
-transform:translateY(-120vh) scale(1.8);
+
+transform:translateY(-120vh);
+
 opacity:0;
+
 }
 
 }
