@@ -12,40 +12,23 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    background:radial-gradient(circle,#3b0a59,#12001d,#000);
     overflow:hidden;
-    background:radial-gradient(circle at top,#3b0a59,#12001d,#000);
-    color:#fff;
-}
-
-.background{
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle,#ffffff22 1px,transparent 1px);
-    background-size:35px 35px;
-    animation:bgMove 70s linear infinite;
-    opacity:.35;
+    color:white;
 }
 
 .container{
-    position:relative;
-    z-index:5;
     width:90%;
-    max-width:750px;
+    max-width:700px;
+    padding:45px;
     text-align:center;
 
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(20px);
 
-    border:1px solid rgba(255,255,255,.15);
-
     border-radius:30px;
 
-    padding:55px 35px;
-
-    box-shadow:
-        0 0 40px rgba(255,45,117,.25);
-
+    border:1px solid rgba(255,255,255,.15);
 }
 
 .heart{
@@ -54,13 +37,13 @@ font-size:90px;
 
 animation:beat 1s infinite;
 
-margin-bottom:15px;
+margin-bottom:20px;
 
 }
 
 h1{
 
-font-size:55px;
+font-size:52px;
 
 color:#ff4d88;
 
@@ -70,7 +53,7 @@ h2{
 
 margin:20px 0;
 
-font-size:38px;
+font-size:34px;
 
 }
 
@@ -78,9 +61,9 @@ p{
 
 font-size:20px;
 
-line-height:1.9;
+line-height:1.8;
 
-margin-bottom:35px;
+margin-bottom:30px;
 
 }
 
@@ -98,7 +81,7 @@ flex-wrap:wrap;
 
 button{
 
-padding:18px 40px;
+padding:18px 35px;
 
 border:none;
 
@@ -108,17 +91,15 @@ font-size:20px;
 
 cursor:pointer;
 
-transition:.35s;
+transition:.3s;
 
 }
 
 #yes{
 
-background:linear-gradient(45deg,#ff2d75,#ff6ca8);
+background:#ff2d75;
 
 color:white;
-
-box-shadow:0 10px 30px rgba(255,45,117,.4);
 
 }
 
@@ -132,7 +113,7 @@ transform:scale(1.08);
 
 background:white;
 
-color:#111;
+color:black;
 
 position:relative;
 
@@ -146,7 +127,7 @@ position:fixed;
 
 inset:0;
 
-background:linear-gradient(135deg,#ff2d75,#7a2cff);
+background:linear-gradient(135deg,#ff2d75,#8f3cff);
 
 justify-content:center;
 
@@ -158,34 +139,6 @@ text-align:center;
 
 padding:20px;
 
-z-index:999;
-
-}
-
-#success h2{
-
-font-size:42px;
-
-margin:25px 0;
-
-}
-
-#success h3{
-
-font-size:30px;
-
-margin-bottom:25px;
-
-color:#ffe082;
-
-}
-
-#success p{
-
-font-size:24px;
-
-max-width:700px;
-
 }
 
 @keyframes beat{
@@ -195,55 +148,5 @@ max-width:700px;
 50%{transform:scale(1.15);}
 
 100%{transform:scale(1);}
-
-}
-
-@keyframes bgMove{
-
-from{
-
-transform:translateY(0);
-
-}
-
-to{
-
-transform:translateY(-300px);
-
-}
-
-}
-
-@media(max-width:768px){
-
-.container{
-
-padding:35px 20px;
-
-}
-
-h1{
-
-font-size:42px;
-
-}
-
-h2{
-
-font-size:28px;
-
-}
-
-p{
-
-font-size:17px;
-
-}
-
-button{
-
-width:100%;
-
-}
 
 }
