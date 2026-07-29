@@ -327,3 +327,14 @@ transform:translateX(120%);
 }
 
 }
+body{
+    transition: opacity 1.5s ease, filter 1.5s ease;
+}
+
+.glass{
+    transition: transform .8s ease, opacity .8s ease;
+}
+
+audio{
+    display:none;
+}
